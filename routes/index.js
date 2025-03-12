@@ -1,7 +1,12 @@
 const routes = require('express').Router();
-const userController = require('../controllers/contacts');
+const contactsController = require('../controllers/contacts');
 
-routes.get('/', userController.getUser);
-routes.get('/username', userController.getUsername);
+routes.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+routes.get('/contacts', contactsController.getAll)
+routes.get('/contacts/:id', contactsController.getSingle)
+
 
 module.exports = routes;
